@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-12  mt-5">
+            <div class="alert alert-warning" *ngIf="!taskID">
+                Can't Match Any ID ...
+            </div>
+
+            <div *ngIf="taskID">
+
+                <div class="data">
+                    <div>
+                        <h3>Title : </h3>
+                        <span contenteditable #title (input)="changeTitle(title)">{{task.title|titlecase}}</span>
+                    </div>
+                    <!-- <input type="text" [(ngModel)] ='task.title' > -->
+                    <!-- <textarea [(ngModel)] ='task.description' class="form-control m-3" ></textarea> -->
+                    <h3>Description : </h3>
+                    <span contenteditable #desc (input)="changeDescrption(desc)"> {{task.description |titlecase}}</span>
+                </div>
+            </div>
+        </div>
+
+       <div class="row">
+           <div class="form-group">
+               <button class="btn success btn-md px-4 " (click)="updateData()">Update</button>
+               <button class="btn secondary btn-md  px-4 m-2" routerLink="/">Cancel</button>
+               <button class="btn danger btn-md px-4 " (click)="delete()">Delete</button>
+           </div>
+       </div>
+    </div>
+</div>
+<!-- contenteditable -->

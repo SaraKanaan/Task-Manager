@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-6 mt-5 text-center justify-content-md-center">
+            <button class="btn success" routerLink="/add-task">Add New Task</button>
+        </div>
+    </div>
+
+    <div class="row justify-content-center ">
+        <div class="col-md-8 col-sm-12">
+            <div class="No-Task mt-5">
+                <div class="alert alert-danger" *ngIf="allTasks.length == 0  else showTask">
+                    <h5>No Tasks Yet ..</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+            <ng-template #showTask class="show-Task mt-5">
+                <div class="tasks  mt-5">
+                    <h5 class="task-item px-3 p-2 m-3  shadow bg-white" *ngFor="let task of allTasks , index as i">
+                        <a [routerLink]="['/task' , i]">
+                            {{task.title | titlecase}}
+                        </a>
+                        <input type="button" class=" text-danger" value="Delete Task" (click)="deleteTask(i)"
+                    >
+                    </h5>
+                </div>
+
+            </ng-template>
+        </div>

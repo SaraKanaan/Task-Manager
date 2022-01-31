@@ -1,0 +1,15 @@
+
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-6 mt-5">
+            <h2 class="text-light mb-4 p-4 text-center">Add New Task</h2>
+             <form #addItem="ngForm" (ngSubmit)="addTask(addItem)" >
+                <input #title="ngModel" ngModel  type="text" placeholder="Title Task" class="form-control mb-4" name="title" required >
+
+                <textarea #desc="ngModel" ngModel name="desc" type="text" placeholder="Title Description" class="form-control mb-4" required></textarea>
+                <button class="btn green btn-md px-5 mx-1" type="submit" [disabled]="addItem.invalid" >Save</button>
+                <button class="btn danger btn-md px-5" type="button" routerLink="/">Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
